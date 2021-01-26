@@ -10,7 +10,6 @@ from django.urls import path, include  # add this
 urlpatterns = [
     path('admin/', admin.site.urls),          # Django admin route
     path("", include("authentication.urls")), # Auth routes - login / register
-    path("", include("app.urls")),             # UI Kits Html files
-    # path("", include("main.urls"))             # UI Kits Html files
-# ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-]
+    path("dashboard", include("app.urls")),             # UI Kits Html files
+    path("", include("main.urls"))             # UI Kits Html files
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
