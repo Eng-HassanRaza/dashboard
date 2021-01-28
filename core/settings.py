@@ -32,7 +32,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',  # Enable the inner app
-    'main'
+    'main',
+    'compressor'
 ]
 
 MIDDLEWARE = [
@@ -123,5 +124,15 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(CORE_DIR, 'core/static'),
 )
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    # other finders..
+    'compressor.finders.CompressorFinder',
+)
+COMPRESS_PRECOMPILERS = (
+    ('text/x-scss', 'django_libsass.SassCompiler'),
+)
+
 #############################################################
 #############################################################
