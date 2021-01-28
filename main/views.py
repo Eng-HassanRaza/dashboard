@@ -7,3 +7,10 @@ def index(request):
 
     html_template = loader.get_template('front-end/index.html')
     return HttpResponse(html_template.render(context, request))
+
+def insight(request):
+    context = {}
+    context['page'] = 'index'
+
+    html_template = loader.get_template('front-end/insights/insight.html')
+    return HttpResponse(html_template.render(context, request))
