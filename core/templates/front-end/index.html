@@ -1,0 +1,7 @@
+{% extends "front-end/template.html" %}
+{% block content %}
+  {% if page == "index" %}
+    {% include "front-end/parts/hero.html" %}
+  {% endif %}
+    {% include "front-end/parts/main.html" %}
+{% endblock content %}
