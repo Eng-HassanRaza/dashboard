@@ -1,26 +1,9 @@
 {% extends "front-end/template.html" %}
-  {%block insight%}
-        <!-- Bootstrap -->
-		<link rel="stylesheet" href="/static/assets/insights/scripts/bootstrap/bootstrap.min.css">
-		<!-- IonIcons -->
-		<link rel="stylesheet" href="/static/assets/insights/scripts/ionicons/css/ionicons.min.css">
-		<!-- Toast -->
-		<link rel="stylesheet" href="/static/assets/insights/scripts/toast/jquery.toast.min.css">
-		<!-- OwlCarousel -->
-		<link rel="stylesheet" href="/static/assets/insights/scripts/owlcarousel/dist/assets/owl.carousel.min.css">
-		<link rel="stylesheet" href="/static/assets/insights/scripts/owlcarousel/dist/assets/owl.theme.default.min.css">
-		<!-- Magnific Popup -->
-		<link rel="stylesheet" href="/static/assets/insights/scripts/magnific-popup/dist/magnific-popup.css">
-		<link rel="stylesheet" href="/static/assets/insights/scripts/sweetalert/dist/sweetalert.css">
-		<!-- Custom style -->
-		<link rel="stylesheet" href="/static/assets/insights/css/style.css">
-		<link rel="stylesheet" href="/static/assets/insights/css/skins/all.css">
-		<link rel="stylesheet" href="/static/assets/insights/css/demo.css">
-        <link rel="stylesheet" href="/static/assets/insights/css/style.css">
-  {%endblock insight%}
+
 {% block content %}
-    <div class="insight-main" style="background-color:black">
-            <div style="padding-top:100px"></div>
+    <div class="insight-main" style="">
+            <div style="padding-top:100px; background-color:black"></div>
+		<div class="container">
     		<section class="home">
 			<div class="container">
 				<div class="row">
@@ -807,8 +790,7 @@
 				</div>
 			</div>
 		</section>
-
-		<section class="best-of-the-week">
+			<section class="best-of-the-week">
 			<div class="container">
 				<h1><div class="text">Best Of The Week</div>
 					<div class="carousel-nav" id="best-of-the-week-nav">
@@ -926,19 +908,6 @@
 				</div>
 			</div>
 		</section>
+		</div>
     </div>
-  {%block insightscript%}
-    <script src="/static/assets/insights/js/jquery.js"></script>
-		<script src="/static/assets/insights/js/jquery.migrate.js"></script>
-		<script src="/static/assets/insights/scripts/bootstrap/bootstrap.min.js"></script>
-		<script>var $target_end=$(".best-of-the-week");</script>
-		<script src="/static/assets/insights/scripts/jquery-number/jquery.number.min.js"></script>
-		<script src="/static/assets/insights/scripts/owlcarousel/dist/owl.carousel.min.js"></script>
-		<script src="/static/assets/insights/scripts/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
-		<script src="/static/assets/insights/scripts/easescroll/jquery.easeScroll.js"></script>
-		<script src="/static/assets/insights/scripts/sweetalert/dist/sweetalert.min.js"></script>
-		<script src="/static/assets/insights/scripts/toast/jquery.toast.min.js"></script>
-    <script src="/static/assets/insights/js/demo.js"></script>
-		<script src="/static/assets/insights/js/e-magz.js"></script>
-  {%endblock insightscript%}
 {% endblock content %}

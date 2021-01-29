@@ -12,5 +12,5 @@ def insight(request):
     context = {}
     context['page'] = 'index'
 
-    html_template = loader.get_template('front-end/insights/insight.html')
+    html_template = loader.get_template('front-end/insights/index.html')
     return HttpResponse(html_template.render(context, request))
