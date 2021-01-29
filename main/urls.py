@@ -8,5 +8,6 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index-page'),
-    path('insights', views.insight, name='insight-page'),
+    path('insights/', views.insight, name='insight-page'),
+    path('insights/<int:id>/', views.insight_post, name='insight_post_page'),
 ]
