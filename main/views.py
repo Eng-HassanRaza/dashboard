@@ -12,8 +12,8 @@ def index(request):
 
 def insight(request):
     context = {}
-    posts = Post.objects.all()
-    latest = posts.order_by('-id')[:4]
+    posts = Post.objects.all().order_by('-id')
+    latest = posts[:4]
     latest_first = latest[0:2]
     latest_second = latest[2:4]
     popular = posts.filter(tags__name__in=["popular"])[:6]
@@ -35,8 +35,8 @@ def insight_post(request,id):
     context = {}
     post = get_object_or_404(Post, pk=id)
 
-    posts = Post.objects.all()
-    latest = posts.order_by('-id')[:4]
+    posts = Post.objects.all().order_by('-id')
+    latest = posts[:4]
     popular = posts.filter(tags__name__in=["popular"])[:2]
     context['latest'] = latest
     context['popular'] = popular
