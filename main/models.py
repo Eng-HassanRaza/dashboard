@@ -21,3 +21,11 @@ class Post(models.Model):
 
     def __str__(self):
         return "%s (%s)" % (self.title, self.author.first_name)
+
+class Slider(models.Model):
+    title = models.CharField(max_length=255)
+    image = models.ImageField(upload_to = 'insights/', default = 'insights/img01.jpg')
+    button_url = models.CharField(max_length=255)
+
+    def __str__(self):
+        return "%s" % (self.title)

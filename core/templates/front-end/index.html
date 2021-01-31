@@ -1,7 +1,9 @@
 {% extends "front-end/template.html" %}
 {% block content %}
   {% if page == "index" %}
-    {% include "front-end/parts/hero.html" %}
+    {% with slider_data as slider %}
+      {% include "front-end/insights/slider.html" %}
+    {% endwith %}
   {% endif %}
     {% include "front-end/parts/main.html" %}
 {% endblock content %}

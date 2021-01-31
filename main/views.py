@@ -1,15 +1,20 @@
 from django.shortcuts import get_object_or_404
 from django.template import loader
 from django.http import HttpResponse
-from .models import Post
+from .models import Post,Slider
 
 def index(request):
     context = {}
+    sliders = Slider.objects.all()
     context['page'] = 'index'
+    context['slider_data'] = sliders
 
     html_template = loader.get_template('front-end/index.html')
     return HttpResponse(html_template.render(context, request))
-
+def slider(request):
+    context={}
+    html_template = loader.get_template('front-end/insights/slider.html')
+    return HttpResponse(html_template.render(context, request))
 def insight(request):
     context = {}
     posts = Post.objects.all().order_by('-id')
