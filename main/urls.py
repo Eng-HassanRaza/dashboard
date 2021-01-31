@@ -13,4 +13,5 @@ urlpatterns = [
     path('insights/<int:id>/', views.insight_post, name='insight_post_page'),
     path('insights/catagories/<slug:catagory>/', views.insight_catagory, name='insight_catagory_page'),
     path('insights/question-answer', views.insight_question_answer, name='insight_question_answer'),
+    path('insights/about', views.success_stories, name='insight_success_stories'),
 ]

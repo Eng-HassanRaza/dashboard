@@ -1,11 +1,11 @@
 {% extends "front-end/template.html" %}
 {% block content %}
   {% if page == "index" %}
-    {% with slider_data as slider %}
+    {% with data as data %}
       {% include "front-end/insights/slider.html" %}
     {% endwith %}
   {% endif %}
-    {%with catagories as questions%}
+    {%with data as data%}
       {% include "front-end/parts/main.html" %}
     {%endwith%}
 {% endblock content %}

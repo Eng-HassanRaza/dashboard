@@ -36,7 +36,7 @@
   <div id="myCarousel" class="carousel  carousel-fade" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
-        {% for slider in slider_data%}
+        {% for slider in data.slider_data %}
             {% if forloop.first %}
           <li data-target="#myCarousel" data-slide-to="{{forloop.counter}}" class="active"></li>
             {%else%}
@@ -47,7 +47,7 @@
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
-         {% for slider in slider_data%}
+         {% for slider in data.slider_data%}
         {% if forloop.first %}
           <div class="item active">
                 <div class="text-area-main">

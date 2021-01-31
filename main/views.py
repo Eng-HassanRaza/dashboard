@@ -8,9 +8,11 @@ def index(request):
     context = {}
     sliders = Slider.objects.all()
     catagories = Catagory.objects.all()
+    posts = Post.objects.all().order_by('-id')
+    latest = posts[:3]
     context['page'] = 'index'
-    context['slider_data'] = sliders
-    context['catagories'] = catagories
+    data = {'latest': latest, 'slider_data': sliders,'questions':catagories}
+    context['data'] = data
 
     html_template = loader.get_template('front-end/index.html')
     return HttpResponse(html_template.render(context, request))
@@ -94,3 +96,8 @@ def insight_question_answer(request):
 
 
     return JsonResponse(data)
+
+def success_stories(request):
+    context = {}
+    html_template = loader.get_template('front-end/insights/success_stories.html')
+    return HttpResponse(html_template.render(context, request))
