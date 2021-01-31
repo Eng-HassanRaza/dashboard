@@ -16,10 +16,25 @@ def index(request):
 
     html_template = loader.get_template('front-end/index.html')
     return HttpResponse(html_template.render(context, request))
-def slider(request):
+def contact_us(request):
     context={}
-    html_template = loader.get_template('front-end/insights/slider.html')
+    html_template = loader.get_template('front-end/insights/contact-us.html')
     return HttpResponse(html_template.render(context, request))
+def pricing(request):
+    context={}
+    html_template = loader.get_template('front-end/insights/pricing.html')
+    return HttpResponse(html_template.render(context, request))
+
+def portfolio(request):
+    context={}
+    html_template = loader.get_template('front-end/insights/portfolio.html')
+    return HttpResponse(html_template.render(context, request))
+
+def team(request):
+    context={}
+    html_template = loader.get_template('front-end/insights/team.html')
+    return HttpResponse(html_template.render(context, request))
+
 def insight(request):
     context = {}
     posts = Post.objects.all().order_by('-id')
