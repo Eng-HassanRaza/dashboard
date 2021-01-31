@@ -1,0 +1,24 @@
+
+        .carousel-inner .item {
+                position: relative;
+                height:650px;
+        }
+        .carousel-inner .item img{
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+        }
+        .text-area-main{
+              width: 40%;
+              height: auto;
+              color:white;
+              text-align:center;
+              /* Center vertically and horizontally */
+              position: absolute;
+              top: 50%;
+              left: 32%;
+              margin: -25px 0 0 -25px;
+        }
+        .button-slider{
+            text-align:center;
+        }
