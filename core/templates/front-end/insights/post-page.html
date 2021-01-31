@@ -33,7 +33,7 @@
 											</p>
 											<div class="detail">
 												<div class="time">{{art.date}}</div>
-												<div class="category"><a href="category.html">{{art.catagory}}</a></div>
+												<div class="category"><a href={% url 'insight_catagory_page' art.catagory  %}>{{art.catagory}}</a></div>
 											</div>
 										</div>
 									</div>
@@ -50,7 +50,7 @@
 										<div class="padding">
 											<h1><a href={% url 'insight_post_page' art.id  %}>{{art.title|truncatechars:45}}</a></h1>
 											<div class="detail">
-												<div class="category"><a href="category.html">{{art.catagory}}</a></div>
+												<div class="category"><a href={% url 'insight_catagory_page' art.catagory  %}>{{art.catagory}}</a></div>
 												<div class="time">{{art.date}}</div>
 											</div>
 										</div>
@@ -150,7 +150,7 @@
 									<div class="padding">
 										<h2><a href={% url 'insight_post_page' art.id  %}>{{art.title|truncatechars:50}}</a></h2>
 										<div class="detail">
-											<div class="category"><a href="category.html">{{art.catagory}}</a></div>
+											<div class="category"><a href={% url 'insight_catagory_page' art.catagory  %}>{{art.catagory}}</a></div>
 											<div class="time">{{art.date}}</div>
 										</div>
 									</div>

@@ -10,4 +10,5 @@ urlpatterns = [
     path('', views.index, name='index-page'),
     path('insights/', views.insight, name='insight-page'),
     path('insights/<int:id>/', views.insight_post, name='insight_post_page'),
+    path('insights/catagories/<slug:catagory>/', views.insight_catagory, name='insight_catagory_page'),
 ]

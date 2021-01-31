@@ -1,0 +1,148 @@
+{% extends "front-end/template.html" %}
+
+{% block content %}
+	<link rel="stylesheet" href="/static/assets/frontend/assets/css/bootstrap.min-pagination.css">
+	<div style="padding-top:110px; background-color:black"></div>
+
+		<section class="category">
+		  <div class="container">
+		    <div class="row">
+		      <div class="col-md-8 text-left">
+		        <div class="row">
+		          <div class="col-md-12">        
+		            <ol class="breadcrumb">
+		              <li><a href="#">Insights </a></li>
+		              <li class="active">{{catagory_name}}</li>
+		            </ol>
+		            <h1 class="page-title">Category: {{catagory_name}}</h1>
+		            <p class="page-subtitle">Showing all posts with category <i>{{catagory_name}}</i></p>
+		          </div>
+		        </div>
+		        <div class="line"></div>
+		        <div class="row">
+					{%for art in catagory_posts%}
+		          <article class="col-md-12 article-list">
+		            <div class="inner">
+		              <figure>
+			              <a href={% url 'insight_post_page' art.id  %}>
+			                <img src={{art.image.url}}>
+		                </a>
+		              </figure>
+		              <div class="details">
+		                <div class="detail">
+		                  <div class="category">
+		                   <a href="category.html">{{art.catagory}}</a>
+		                  </div>
+		                  <div class="time">{{art.date}}</div>
+		                </div>
+		                <h1><a href={% url 'insight_post_page' art.id  %}>{{art.title|truncatechars:50}}</a></h1>
+		                <p>
+							{{art.body|truncatechars:100}}
+		                </p>
+		                <footer>
+		                  <a href="#" class="love"><i class="ion-android-favorite-outline"></i> <div>237</div></a>
+		                  <a class="btn btn-primary more" href="single.html">
+		                    <div>More</div>
+		                    <div><i class="ion-ios-arrow-thin-right"></i></div>
+		                  </a>
+		                </footer>
+		              </div>
+		            </div>
+		          </article>
+					{%endfor%}
+		          <div class="col-md-12 text-center">
+		            <ul class="pagination">
+		              <li class="prev"><a href="#"><i class="ion-ios-arrow-left"></i></a></li>
+		              <li class="active"><a href="#">1</a></li>
+		              <li><a href="#">2</a></li>
+		              <li><a href="#">3</a></li>
+		              <li><a href="#">...</a></li>
+		              <li><a href="#">97</a></li>
+		              <li class="next"><a href="#"><i class="ion-ios-arrow-right"></i></a></li>
+		            </ul>
+		            <div class="pagination-help-text">
+		            	Showing 8 results of 776 &mdash; Page 1
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+		      <div class="col-md-4 sidebar">
+		        <aside>
+		          <div class="aside-body">
+		            <figure class="ads">
+			            <a href="single.html">
+			              <img src="/static/assets/insights/images/ad.png">
+			            </a>
+		              <figcaption>Advertisement</figcaption>
+		            </figure>
+		          </div>
+		        </aside>
+		        <aside>
+		          <h1 class="aside-title">Recent Post</h1>
+		          <div class="aside-body">
+					  {% for art in latest %}
+					  {%if forloop.first%}
+		            <article class="article-fw">
+		              <div class="inner">
+		                <figure>
+			                <a href={% url 'insight_post_page' art.id  %}>
+			                  <img src="{{art.image.url}}">
+								<h1></h1>
+			                </a>
+		                </figure>
+		                <div class="details">
+		                  <h1><a href={% url 'insight_post_page' art.id  %}>{{art.title|truncatechars:50}}</a></h1>
+		                  <p>
+							  {{art.body|truncatechars:100}}
+		                  </p>
+		                  <div class="detail">
+		                    <div class="time">{{art.date}}</div>
+		                    <div class="category"><a href={% url 'insight_catagory_page' art.catagory  %}>{{art.catagory}}</a></div>
+		                  </div>
+		                </div>
+		              </div>
+		            </article>
+		            <div class="line"></div>
+					  {%endif%}
+		            <article class="article-mini">
+		              <div class="inner">
+		              <figure>
+			              <a href={% url 'insight_post_page' art.id  %}>
+			                <img src={{art.image.url}}>
+		                </a>
+		              </figure>
+		              <div class="padding">
+		                <h1><a href={% url 'insight_post_page' art.id  %}>{{art.title}}</a></h1>
+		                <div class="detail">
+		                  <div class="category"><a href={% url 'insight_catagory_page' art.catagory  %}>{{art.catagory}}</a></div>
+		                  <div class="time">art.date</div>
+		                </div>
+		              </div>
+		              </div>
+		            </article>
+					  {%endfor%}
+		          </div>
+		        </aside>
+		        <aside>
+		          <div class="aside-body">
+		            <form class="newsletter">
+		              <div class="icon">
+		                <i class="ion-ios-email-outline"></i>
+		                <h1>Newsletter</h1>
+		              </div>
+		              <div class="input-group">
+		                <input type="email" class="form-control email" placeholder="Your mail">
+		                <div class="input-group-btn">
+		                  <button class="btn btn-primary"><i class="ion-paper-airplane"></i></button>
+		                </div>
+		              </div>
+		              <p>By subscribing you will receive new articles in your email.</p>
+		            </form>
+		          </div>
+		        </aside>
+		      </div>
+		    </div>
+		  </div>
+		</section>
+
+{%endblock content%}

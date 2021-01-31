@@ -99,7 +99,7 @@
 											<div class="padding">
 												<div class="detail">
 													<div class="time">{{art.date}}</div>
-													<div class="category"><a href="category.html">{{art.catagory}}</a></div>
+													<div class="category"><a href={% url 'insight_catagory_page' art.catagory  %}>{{art.catagory}}</a></div>
 												</div>
 												<h2><a href={% url 'insight_post_page' art.id  %}>{{art.title|truncatechars:50}}</a></h2>
 												<p>{{art.body|truncatechars:100}}</p>
@@ -129,7 +129,7 @@
 											<div class="padding">
 												<div class="detail">
 													<div class="time">{{art.date}}</div>
-													<div class="category"><a href="category.html">{{art.catagory}}</a></div>
+													<div class="category"><a href={% url 'insight_catagory_page' art.catagory  %}>{{art.catagory}}</a></div>
 												</div>
 												<h2><a href={% url 'insight_post_page' art.id  %}>{{art.title|truncatechars:50}}</a></h2>
 												<p>{{art.body|truncatechars:100}}</p>
@@ -196,7 +196,7 @@
 											<div class="padding">
 												<h1><a href={% url 'insight_post_page' art.id  %}>{{art.title|truncatechars:50}}</a></h1>
 												<div class="detail">
-													<div class="category"><a href="category.html">{{art.catagory}}</a></div>
+													<div class="category"><a href={% url 'insight_catagory_page' art.catagory  %}>{{art.catagory}}</a></div>
 													<div class="time">{{art.date}}</div>
 												</div>
 											</div>
@@ -221,7 +221,7 @@
 									<div class="details">
 										<div class="detail">
 											<div class="category">
-												<a href="#">{{art.catagory}}</a>
+												<a href={% url 'insight_catagory_page' art.catagory  %}>{{art.catagory}}</a>
 											</div>
 											<div class="time">{{art.date}}</div>
 										</div>
@@ -305,7 +305,7 @@
 												<div class="details">
 													<div class="detail">
 														<div class="time">art.date</div>
-														<div class="category"><a href="category.html">{{art.catagory}}</a></div>
+														<div class="category"><a href={% url 'insight_catagory_page' art.catagory  %}>{{art.catagory}}</a></div>
 													</div>
 													<h1><a href={% url 'insight_post_page' art.id  %}>{{art.title|truncatechars:45}}</a></h1>
 													<p>{{art.body|truncatechars:80}}</p>
@@ -324,7 +324,7 @@
 											<div class="padding">
 												<h1><a href={% url 'insight_post_page' art.id  %}>{{art.title|truncatechars:45}}</a></h1>
 												<div class="detail">
-													<div class="category"><a href="category.html">{{art.catagory}}</a></div>
+													<div class="category"><a href={% url 'insight_catagory_page' art.catagory  %}>{{art.catagory}}</a></div>
 													<div class="time">{{art.date}}</div>
 												</div>
 											</div>

@@ -47,3 +47,22 @@ def insight_post(request,id):
         context['popular'] = popular
     html_template = loader.get_template('front-end/insights/post-page.html')
     return HttpResponse(html_template.render(context, request))
+
+
+def insight_catagory(request,catagory):
+
+    context = {}
+    id=1
+    posts = Post.objects.all().order_by('-id')
+    catagory_posts = posts.filter(catagory__name=catagory)
+    latest = posts[:4]
+    popular = posts.filter(tags__name__in=["popular"])[:2]
+    context['latest'] = latest
+    context['catagory_name'] = catagory
+    context['popular'] = popular
+
+    if posts:
+        context['latest'] = latest
+        context['catagory_posts'] = catagory_posts
+    html_template = loader.get_template('front-end/insights/category.html')
+    return HttpResponse(html_template.render(context, request))
