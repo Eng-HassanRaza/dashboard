@@ -5,5 +5,7 @@
       {% include "front-end/insights/slider.html" %}
     {% endwith %}
   {% endif %}
-    {% include "front-end/parts/main.html" %}
+    {%with catagories as questions%}
+      {% include "front-end/parts/main.html" %}
+    {%endwith%}
 {% endblock content %}

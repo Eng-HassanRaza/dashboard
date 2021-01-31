@@ -1,13 +1,16 @@
 from django.shortcuts import get_object_or_404
+from django.views.decorators.csrf import csrf_exempt
 from django.template import loader
-from django.http import HttpResponse
-from .models import Post,Slider
+from django.http import HttpResponse,JsonResponse
+from .models import Post,Slider,Catagory
 
 def index(request):
     context = {}
     sliders = Slider.objects.all()
+    catagories = Catagory.objects.all()
     context['page'] = 'index'
     context['slider_data'] = sliders
+    context['catagories'] = catagories
 
     html_template = loader.get_template('front-end/index.html')
     return HttpResponse(html_template.render(context, request))
@@ -71,3 +74,23 @@ def insight_catagory(request,catagory):
         context['catagory_posts'] = catagory_posts
     html_template = loader.get_template('front-end/insights/category.html')
     return HttpResponse(html_template.render(context, request))
+@csrf_exempt
+def insight_question_answer(request):
+    context = {}
+    data = dict()
+    ansone = request.POST['answerone']
+    anstwo = request.POST['answertwo']
+    posts = Post.objects.all().order_by('-id')
+    catagory_posts = posts.filter(catagory__name=ansone)[:3]
+    if catagory_posts:
+        context['catagory_posts'] = catagory_posts
+        html_template = loader.get_template('front-end/parts/question-result.html')
+        data['html_table'] = html_template.render(
+            context,
+            request=request
+        )
+    else:
+        data['html_table'] = '<h2 style="text-align:center;top:20%">No Data Found For Selected Catagory</h2>'
+
+
+    return JsonResponse(data)

@@ -1,0 +1,32 @@
+
+ <div class="row">
+          {%for art in catagory_posts%}
+            <div class="col-lg-4" data-aos="fade-up">
+            <div class="box">
+              <span>{{forloop.counter}}</span>
+              <a href={% url 'insight_post_page' art.id  %} target="_blank">
+                <h4>{{art.title|truncatechars:50}}</h4>
+              </a>
+              <p>{{art.body|truncatechars:100}}</p>
+            </div>
+          </div>
+          {%endfor%}
+          <!--<div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="150">
+            <div class="box">
+              <span>02</span>
+              <h4>Repellat Nihil</h4>
+              <p>Dolorem est fugiat occaecati voluptate velit esse. Dicta veritatis dolor quod et vel dire leno para dest</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
+            <div class="box">
+              <span>03</span>
+              <h4> Ad ad velit qui</h4>
+              <p>Molestiae officiis omnis illo asperiores. Aut doloribus vitae sunt debitis quo vel nam quis</p>
+            </div>
+          </div>-->
+
+        </div>
+
+<!-- End Why Us Section -->

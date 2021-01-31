@@ -1,20 +1,83 @@
  <!-- ======= Main Section ======= -->
-  <main id="main">
-
+ <main id="main" xmlns="http://www.w3.org/1999/html">
+    <section id="reset-section">
+      <div class="container">
+        <button class="btn btn-danger" id="reset-btn" style="float:right;display:none">Reset</button>
+      </div>
+    </section>
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container">
 
-        <div class="row">
+        <div id="question-one" class="row">
+          <div class="col-lg-6 order-1 order-lg-2" id="question2image" data-aos="fade-left">
+            <img src="/static/assets/frontend/assets/img/about.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" id="question1box" data-aos="fade-right">
+            <h1>We champion the bold to achieve the extraordinary.</h1>
+            </br>
+            <p>Answer two questions and put our thinking to work on your challenges.</p>
+            <h3>1.What is your Industry?  </h3>
+            <div  class="row" style="margin-top:10px">
+              {%for category in questions%}
+              <div style="margin-top:15px" class="col-md-3">
+                <button class="btn btn-danger q1"  > {{category.name}} </button>
+              </div>
+              {%endfor%}
+            </div>
+          </div>
+        </div>
+        <div id="question-two" style="display:none" class="row">
+          <div class="col-lg-6 order-1 order-lg-2" id="q2image" data-aos="fade-left">
+            <img src="/media/insights/img01.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
+            <h1>We champion the bold to achieve the extraordinary.</h1>
+            </br>
+            <p>Answer two questions and put our thinking to work on your challenges.</p>
+            <h3>2.What is your business need?  </h3>
+            <div  class="row" style="margin-top:10px">
+              <div style="margin-top:15px" class="col-md-3">
+                <button class="btn btn-danger q2"  > Next </button>
+              </div>
+              <div style="margin-top:15px" class="col-md-3">
+                <button class="btn btn-danger q2"  > Next </button>
+              </div>
+              <div style="margin-top:15px" class="col-md-3">
+                <button class="btn btn-danger q2"  > Next </button>
+              </div>
+              <div style="margin-top:15px" class="col-md-3">
+                <button class="btn btn-danger q2"  > Next </button>
+              </div>
+              <div style="margin-top:15px" class="col-md-3">
+                <button class="btn btn-danger q2"  > Next </button>
+              </div>
+              <div style="margin-top:15px" class="col-md-3">
+                <button class="btn btn-danger q2"  > Next </button>
+              </div>
+              <div style="margin-top:15px" class="col-md-3">
+                <button class="btn btn-danger q2"  > Next </button>
+              </div>
+              <div style="margin-top:15px" class="col-md-3">
+                <button class="btn btn-danger q2"  > Next </button>
+              </div>
+            </div>
+        </div>
+
+      </div>
+
+
+        <div id="questionresult" class="row" style="display:none">
           <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left">
             <img src="/static/assets/frontend/assets/img/about.jpg" class="img-fluid" alt="">
           </div>
-          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
-            <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content"  data-aos="fade-right">
+            <h3>Voluptatem dignissimos provident quasi corporis voluptates sit box.</h3>
             <p class="font-italic">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
               magna aliqua.
             </p>
+            <button class="btn btn-success" > Next </button>
             <ul>
               <li><i class="icofont-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
               <li><i class="icofont-check-circled"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
@@ -27,44 +90,14 @@
             </p>
           </div>
         </div>
-
-      </div>
     </section><!-- End About Section -->
 
     <!-- ======= Why Us Section ======= -->
-    <section id="why-us" class="why-us">
-      <div class="container">
 
-        <div class="row">
-
-          <div class="col-lg-4" data-aos="fade-up">
-            <div class="box">
-              <span>01</span>
-              <h4>Lorem Ipsum</h4>
-              <p>Ulamco laboris nisi ut aliquip ex ea commodo consequat. Et consectetur ducimus vero placeat</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="150">
-            <div class="box">
-              <span>02</span>
-              <h4>Repellat Nihil</h4>
-              <p>Dolorem est fugiat occaecati voluptate velit esse. Dicta veritatis dolor quod et vel dire leno para dest</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
-            <div class="box">
-              <span>03</span>
-              <h4> Ad ad velit qui</h4>
-              <p>Molestiae officiis omnis illo asperiores. Aut doloribus vitae sunt debitis quo vel nam quis</p>
-            </div>
-          </div>
-
-        </div>
-
+      <section id="why-us" class="why-us">
+      <div class="container" id="questionres">
       </div>
-    </section><!-- End Why Us Section -->
+      </section>
 
     <!-- ======= Clients Section ======= -->
     <section id="clients" class="clients">
@@ -509,4 +542,5 @@
     </section><!-- End Contact Section -->
 
   </main>
+<script src="/static/assets/frontend/assets/js/question-answer-ajax.js"></script>
    <!-- End #main -->
