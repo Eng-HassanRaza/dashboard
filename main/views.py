@@ -3,6 +3,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.template import loader
 from django.http import HttpResponse,JsonResponse
 from .models import Post,Slider,Catagory
+from django.shortcuts import render
 
 def index(request):
     context = {}
@@ -13,7 +14,6 @@ def index(request):
     context['page'] = 'index'
     data = {'latest': latest, 'slider_data': sliders,'questions':catagories}
     context['data'] = data
-
     html_template = loader.get_template('front-end/index.html')
     return HttpResponse(html_template.render(context, request))
 def contact_us(request):
@@ -112,7 +112,88 @@ def insight_question_answer(request):
 
     return JsonResponse(data)
 
+@csrf_exempt
 def success_stories(request):
     context = {}
     html_template = loader.get_template('front-end/insights/success_stories.html')
     return HttpResponse(html_template.render(context, request))
+
+def favorite(request):
+    context={}
+    context = {}
+    data = dict()
+    bookmark_id = request.POST['bookmark_id']
+    post = get_object_or_404(Post, pk=int(bookmark_id))
+
+    red_insight_list = []
+    try:
+        insight_session_data= request.session['red_insights']
+        item_exist = next((item for item in insight_session_data if item["insight_id"] == int(bookmark_id)),False)
+        if not item_exist:
+            insight_session_data.append({
+                "insight_name": post.title,
+                "insight_id":post.id
+            })
+            request.session['red_insights'] = insight_session_data
+    except:
+        request.session['red_insights'] = [{
+            "insight_name": post.title,
+            "insight_id":post.id
+        }]
+    insight_session_data = request.session['red_insights']
+    context['insight_data'] = insight_session_data
+    html_template = loader.get_template('front-end/parts/red-folder-ajax.html')
+    data['html_table'] = html_template.render(
+        context,
+        request=request
+    )
+    # del request.session['red_insights']
+    return JsonResponse(data)
+
+def bookmark_page(request):
+    context = {}
+    bookmark_post = []
+    latest_post = Post.objects.all().order_by('-id')[:4]
+    red_insights_data = request.session['red_insights']
+    for ele in red_insights_data:
+        post = get_object_or_404(Post, pk=ele['insight_id'])
+        bookmark_post.append(post)
+    if bookmark_post:
+        context['bookmark_posts'] = bookmark_post
+    context['latest']=latest_post
+    html_template = loader.get_template('front-end/insights/insight-bookmark-page.html')
+    return HttpResponse(html_template.render(context, request))
+
+def bookmark_delete_ajax(request):
+    context={}
+    data = dict()
+    bookmark_id = request.POST['bookmark_id']
+    bookmark_data = request.session['red_insights']
+    for ele in range(len(request.session['red_insights'])):
+        if bookmark_data[ele]['insight_id'] == int(bookmark_id):
+            del bookmark_data[ele]
+            break
+    request.session['red_insights'] = bookmark_data
+    request.session.save()
+    context['insight_data'] = bookmark_data
+    html_template = loader.get_template('front-end/parts/red-folder-ajax.html')
+    data['html_table'] = html_template.render(
+        context,
+        request=request
+    )
+
+    bookmark_post = []
+    red_insights_data = request.session['red_insights']
+    for ele in red_insights_data:
+        post = get_object_or_404(Post, pk=ele['insight_id'])
+        bookmark_post.append(post)
+    if bookmark_post:
+        context['bookmark_posts'] = bookmark_post
+
+    html_template2 = loader.get_template('front-end/insights/bookmark-contents.html')
+    data['bookmark'] = html_template2.render(
+        context,
+        request=request
+    )
+    # del request.session['red_insights']
+    return JsonResponse(data)

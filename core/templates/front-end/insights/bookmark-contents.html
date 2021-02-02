@@ -1,0 +1,31 @@
+{%for art in bookmark_posts%}
+  <article class="col-md-12 article-list">
+    <div class="inner">
+      <figure>
+          <a href={% url 'insight_post_page' art.id  %}>
+            <img src={{art.image.url}}>
+        </a>
+      </figure>
+      <div class="details">
+        <div class="detail">
+          <div class="category">
+           <a href="category.html">{{art.catagory}}</a>
+          </div>
+          <div class="time">{{art.date}}</div>
+        </div>
+        <h1><a href={% url 'insight_post_page' art.id  %}>{{art.title|truncatechars:50}}</a></h1>
+        <p>
+            {{art.body|truncatechars:100}}
+        </p>
+        <footer>
+          <a href="#" class="love"><i class="icofont-trash"><span style="display:none">{{art.id}}</span></i></a>
+          <a class="btn btn-primary more" href="single.html">
+            <div>More</div>
+            <div><i class="ion-ios-arrow-thin-right"></i></div>
+          </a>
+        </footer>
+      </div>
+    </div>
+  </article>
+<script src="/static/assets/frontend/assets/js/bookmark-ajax.js"></script>
+{%endfor%}

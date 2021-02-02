@@ -1,0 +1,89 @@
+      .mega-dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.mega-dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: inherit;
+  font: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  width: 100%;
+  left: 0;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Mega Menu header, if needed */
+.dropdown-content .header {
+  color: white;
+  width:100%;
+}
+
+/* Show the dropdown menu on hover */
+.mega-dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  height: 250px;
+}
+
+/* Style links inside the columns */
+.column a {
+  float: none;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a background color on hover */
+.column a:hover {
+  background-color: #ddd;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.dropdown-content .container{
+    height:400px;
+    background-color:white
+}
+.child {
+  height: 50px;
+  width:90%;
+  /* Center vertically and horizontally */
+  position: absolute;
+  top: 20%;
+  margin: -25px 0 0 -25px; /* apply negative top and left margins to truly center the element */
+}
+.center-contents{
+    width:100%;
+    display:block;
+    text-align:center;
+}

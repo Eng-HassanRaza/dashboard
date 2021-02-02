@@ -17,4 +17,8 @@ urlpatterns = [
     path('portfolio', views.portfolio, name='portfolio'),
     path('pricing', views.pricing, name='pricing'),
     path('team', views.team, name='team'),
+    path('insights/bookmark-ajax', views.favorite, name='bookmark-ajax'),
+    path('insights/bookmark-delete-ajax', views.bookmark_delete_ajax, name='bookmark-delete-ajax'),
+    path('insights/bookmarks', views.bookmark_page, name='bookmark-page'),
+
 ]

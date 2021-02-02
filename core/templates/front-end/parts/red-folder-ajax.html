@@ -1,0 +1,56 @@
+{%if insight_data %}
+<div class="mega-dropdown" style="float:right">
+
+    <button class="dropbtn"><a style="margin-left:-12px;color:white" href="/insights/bookmarks">RED FOLDER <span>{{insight_data|length}}</span></a>
+                  <i class="icofont-folder" style="color:#cc1616; float:left;margin-top:3px;margin-right:3px"></i>
+            </button>
+
+          </div>
+{%else%}
+    <div class="mega-dropdown" style="float:right">
+
+              <button class="dropbtn">RED FOLDER
+                  <i class="icofont-folder" style="color:#cc1616; float:left;margin-top:3px;margin-right:3px"></i>
+            </button>
+            <div class="dropdown-content">
+                <div class="container" >
+                    <div class="child">
+                        <div class="center-contents">
+                            <i class="icofont-ui-folder" style="color:gray; font-size:100px"></i>
+                            <h1 style="color:gray; font-size:16px">You have no saved content for Red Folder</h1>
+                            <p style="color:black; font-size:16px">Bookmark content that interests you and it will be saved here for you to read or share later.</p>
+                            <a href="/insights"> <button class="btn btn-danger" style="background-color:#cc1616">Browser Insights</button></a>
+                        </div>
+                    </div>
+
+                </div>
+<!--                <div class="container">-->
+<!--                        <div class="row">-->
+<!--                            <div class="header">-->
+<!--                                <h1>Mega Menu</h1>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="row">-->
+<!--                            <div class="column">-->
+<!--                              <h3>Category 1</h3>-->
+<!--                              <a href="#">Link 1</a>-->
+<!--                              <a href="#">Link 2</a>-->
+<!--                              <a href="#">Link 3</a>-->
+<!--                            </div>-->
+<!--                        <div class="column">-->
+<!--                          <h3>Category 2</h3>-->
+<!--                          <a href="#">Link 1</a>-->
+<!--                          <a href="#">Link 2</a>-->
+<!--                          <a href="#">Link 3</a>-->
+<!--                        </div>-->
+<!--                        <div class="column">-->
+<!--                          <h3>Category 3</h3>-->
+<!--                          <a href="#">Link 1</a>-->
+<!--                          <a href="#">Link 2</a>-->
+<!--                          <a href="#">Link 3</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+            </div>
+          </div>
+{%endif%}

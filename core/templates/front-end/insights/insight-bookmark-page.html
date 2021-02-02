@@ -1,0 +1,130 @@
+{% extends "front-end/template.html" %}
+
+{% block content %}
+	<link rel="stylesheet" href="/static/assets/frontend/assets/css/bootstrap.min-pagination.css">
+	<div style="padding-top:110px; background-color:black"></div>
+
+		<section class="category">
+		  <div class="container">
+		    <div class="row">
+		      <div class="col-md-8 text-left">
+		        <div class="row">
+		          <div class="col-md-12">        
+		            <ol class="breadcrumb">
+		              <li><a href="#">Insights </a></li>
+		              <li class="active">Bookmark Insights</li>
+		            </ol>
+		            <h1 class="page-title">Bookmark Insights</h1>
+		            <p class="page-subtitle">Showing all posts from your <i>Bookmarks</i></p>
+		          </div>
+		        </div>
+		        <div class="line"></div>
+		        <div class="row">
+					<div id="bookmark-article">
+						{%include 'front-end/insights/bookmark-contents.html'%}
+					</div>
+
+
+		        </div>
+		      </div>
+		      <div class="col-md-4 sidebar">
+		        <aside>
+		          <div class="aside-body">
+		            <figure class="ads">
+			            <a href="single.html">
+			              <img src="/static/assets/insights/images/ad.png">
+			            </a>
+		              <figcaption>Advertisement</figcaption>
+		            </figure>
+		          </div>
+		        </aside>
+		        <aside>
+		          <h1 class="aside-title">Recent Post</h1>
+		          <div class="aside-body">
+					  {% for art in latest %}
+					  {%if forloop.first%}
+		            <article class="article-fw">
+		              <div class="inner">
+		                <figure>
+			                <a href={% url 'insight_post_page' art.id  %}>
+			                  <img src="{{art.image.url}}">
+								<h1></h1>
+			                </a>
+		                </figure>
+		                <div class="details">
+		                  <h1><a href={% url 'insight_post_page' art.id  %}>{{art.title|truncatechars:50}}</a></h1>
+		                  <p>
+							  {{art.body|truncatechars:100}}
+		                  </p>
+		                  <div class="detail">
+		                    <div class="time">{{art.date}}</div>
+		                    <div class="category"><a href={% url 'insight_catagory_page' art.catagory  %}>{{art.catagory}}</a></div>
+		                  </div>
+		                </div>
+		              </div>
+		            </article>
+		            <div class="line"></div>
+					  {%endif%}
+		            <article class="article-mini">
+		              <div class="inner">
+		              <figure>
+			              <a href={% url 'insight_post_page' art.id  %}>
+			                <img src={{art.image.url}}>
+		                </a>
+		              </figure>
+		              <div class="padding">
+		                <h1><a href={% url 'insight_post_page' art.id  %}>{{art.title}}</a></h1>
+		                <div class="detail">
+		                  <div class="category"><a href={% url 'insight_catagory_page' art.catagory  %}>{{art.catagory}}</a></div>
+		                  <div class="time">art.date</div>
+		                </div>
+		              </div>
+		              </div>
+		            </article>
+					  {%endfor%}
+		          </div>
+		        </aside>
+		        <aside>
+		          <div class="aside-body">
+		            <form class="newsletter">
+		              <div class="icon">
+		                <i class="ion-ios-email-outline"></i>
+		                <h1>Newsletter</h1>
+		              </div>
+		              <div class="input-group">
+		                <input type="email" class="form-control email" placeholder="Your mail">
+		                <div class="input-group-btn">
+		                  <button class="btn btn-primary"><i class="ion-paper-airplane"></i></button>
+		                </div>
+		              </div>
+		              <p>By subscribing you will receive new articles in your email.</p>
+		            </form>
+		          </div>
+		        </aside>
+		      </div>
+		    </div>
+		  </div>
+		</section>
+<script>
+	$(document).on("click", '.icofont-trash', function(event){
+    event.preventDefault();
+    var bookmark_id = $(this).find("span").text().trim();
+    $.ajax({
+        type: "POST",
+        url: "/insights/bookmark-delete-ajax",
+        dataType: 'json',
+        data:{
+            'bookmark_id':bookmark_id,
+        },
+        headers:{
+        "X-CSRFToken": '{{ csrf_token }}'
+    }
+    }).done(function(data) {
+            $("#red-ajax").html(data.html_table);
+            $("#bookmark-article").html(data.bookmark);
+
+    });
+});
+
+</script>
+{%endblock content%}
