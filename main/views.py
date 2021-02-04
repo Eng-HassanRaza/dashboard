@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 from django.template import loader
 from django.http import HttpResponse,JsonResponse
-from .models import Post,Slider,Catagory
+from .models import Post,Slider,Catagory,Success_Stories,Pricing,Team
 from django.shortcuts import render
 
 def index(request):
@@ -11,8 +11,10 @@ def index(request):
     catagories = Catagory.objects.all()
     posts = Post.objects.all().order_by('-id')
     latest = posts[:3]
+    success_stories = Success_Stories.objects.all()
+    success_stories = success_stories[:3]
     context['page'] = 'index'
-    data = {'latest': latest, 'slider_data': sliders,'questions':catagories}
+    data = {'latest': latest, 'slider_data': sliders,'questions':catagories,'success_stories':success_stories}
     context['data'] = data
     html_template = loader.get_template('front-end/index.html')
     return HttpResponse(html_template.render(context, request))
@@ -22,6 +24,8 @@ def contact_us(request):
     return HttpResponse(html_template.render(context, request))
 def pricing(request):
     context={}
+    pricing =Pricing.objects.all()
+    context['pricing']=pricing
     html_template = loader.get_template('front-end/insights/pricing.html')
     return HttpResponse(html_template.render(context, request))
 
@@ -32,6 +36,8 @@ def portfolio(request):
 
 def team(request):
     context={}
+    team=Team.objects.all()
+    context['team']=team
     html_template = loader.get_template('front-end/insights/team.html')
     return HttpResponse(html_template.render(context, request))
 
@@ -115,6 +121,8 @@ def insight_question_answer(request):
 @csrf_exempt
 def success_stories(request):
     context = {}
+    success_stories = Success_Stories.objects.all()
+    context['success_stories'] = success_stories
     html_template = loader.get_template('front-end/insights/success_stories.html')
     return HttpResponse(html_template.render(context, request))
 
@@ -124,7 +132,8 @@ def favorite(request):
     data = dict()
     bookmark_id = request.POST['bookmark_id']
     post = get_object_or_404(Post, pk=int(bookmark_id))
-
+    post.is_bookmark = True
+    post.save()
     red_insight_list = []
     try:
         insight_session_data= request.session['red_insights']
@@ -168,6 +177,9 @@ def bookmark_delete_ajax(request):
     context={}
     data = dict()
     bookmark_id = request.POST['bookmark_id']
+    d_post = get_object_or_404(Post, pk=bookmark_id)
+    d_post.is_bookmark = False
+    d_post.save()
     bookmark_data = request.session['red_insights']
     for ele in range(len(request.session['red_insights'])):
         if bookmark_data[ele]['insight_id'] == int(bookmark_id):

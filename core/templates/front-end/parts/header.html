@@ -2,35 +2,94 @@
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
     <button class="openbtn" onclick="openNav()">☰</button>
-      <h1 class="logo mr-auto"><a href="index.html">Day</a></h1>
+      <h1 class="logo mr-auto"><a href="/">Day</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo mr-auto"><img src="/static/assets/frontend/assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li class="active"><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/portfolio">Portfolio</a></li>
-          <li><a href="/insights">Insights</a></li>
-          <li><a href="/pricing">Pricing</a></li>
-          <li><a href="/team">Team</a></li>
-          <li class="drop-down"><a href="">Drop Down</a>
+          <li class="drop-down"><a href="">Consulting Services</a>
             <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="drop-down"><a href="#">Deep Drop Down</a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
+              <li><a href="#">Digitalization</a></li>
             </ul>
           </li>
+          <li class="drop-down"><a href="">ImpacX</a>
+            <ul>
+              <li><a href="/pricing">Web Hosting</a></li>
+              <li><a href="/pricing">Reseller Hosting</a></li>
+              <li><a href="/login">Client Portal</a></li>
+            </ul>
+          </li>
+
+          <li class="drop-down"><a href="/insights">Insights</a>
+            <ul>
+              <li><a href={% url 'insight_catagory_page' 'network_security'  %}>Network Security</a></li>
+              <li><a href={% url 'insight_catagory_page' 'data_management'  %}>Data Management</a></li>
+              <li><a href={% url 'insight_catagory_page' 'software_development'  %}>Software Development</a></li>
+            </ul>
+          </li>
+
+
+
+          <div class="mega-dropdown drop-down" style="float:right; font-family:'Open Sans', sans-serif;padding:18px 15px">
+
+              <a href="/about"><button class="dropbtn">About
+            </button></a>
+            <div class="dropdown-content" style="top:55px;">
+                <div class="container">
+                        <div class="row">
+                            <div class="header" style="color:black">
+                                <h3 style="font-family:'Open Sans', sans-serif;color:black">About Menu</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                              <h3>About</h3>
+                              <a href="#">What we do</a>
+                              <a href="#">What we believe</a>
+                              <a href="#">Our people & leadership</a>
+                            </div>
+                        <div class="column">
+                          <h3 style="color:white"> column2</h3>
+<!--                          </br>-->
+                          <a href="#">Our Data Centers</a>
+                          <a href="#">Uptime and Security</a>
+                          <a href="#">Success stories</a>
+                        </div>
+                        <div class="column">
+                          <h3>Additional Links</h3>
+                          <a href="/contact">Contact HostImpact</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+
+
+
+
+<!--          <li><a href="/portfolio">Portfolio</a></li>-->
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/team">Team</a></li>
+<!--          <li class="drop-down"><a href="">Drop Down</a>-->
+<!--            <ul>-->
+<!--              <li><a href="#">Drop Down 1</a></li>-->
+<!--              <li class="drop-down"><a href="#">Deep Drop Down</a>-->
+<!--                <ul>-->
+<!--                  <li><a href="#">Deep Drop Down 1</a></li>-->
+<!--                  <li><a href="#">Deep Drop Down 2</a></li>-->
+<!--                  <li><a href="#">Deep Drop Down 3</a></li>-->
+<!--                  <li><a href="#">Deep Drop Down 4</a></li>-->
+<!--                  <li><a href="#">Deep Drop Down 5</a></li>-->
+<!--                </ul>-->
+<!--              </li>-->
+<!--              <li><a href="#">Drop Down 2</a></li>-->
+<!--              <li><a href="#">Drop Down 3</a></li>-->
+<!--              <li><a href="#">Drop Down 4</a></li>-->
+<!--            </ul>-->
+<!--          </li>-->
+
           <li><a href="/contact">Contact</a></li>
 
         </ul>
