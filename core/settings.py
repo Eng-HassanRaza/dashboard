@@ -31,10 +31,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'nested_inline',
+    'nested_admin',
+
     'app',  # Enable the inner app
     'main',
     'compressor',
-    'taggit'
+    'taggit',
+    'pages',
 ]
 
 MIDDLEWARE = [

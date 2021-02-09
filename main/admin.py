@@ -8,6 +8,6 @@ class PostAdmin(admin.ModelAdmin):
 admin.site.register(Catagory)
 admin.site.register(Slider)
 admin.site.register(Success_Stories)
-admin.site.register(Pricing)
+# admin.site.register(Pricing)
 admin.site.register(Team)
 # Register your models here.

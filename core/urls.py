@@ -11,7 +11,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),          # Django admin route
     path("", include("authentication.urls")), # Auth routes - login / register
     path("dashboard", include("app.urls")),             # UI Kits Html files
-    path("", include("main.urls"))             # UI Kits Html files
+    path("", include("main.urls"))  ,           # UI Kits Html files
+    path("pages/", include("pages.urls"))             # UI Kits Html files
 # ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -22,12 +22,6 @@ def contact_us(request):
     context={}
     html_template = loader.get_template('front-end/insights/contact-us.html')
     return HttpResponse(html_template.render(context, request))
-def pricing(request):
-    context={}
-    pricing =Pricing.objects.all()
-    context['pricing']=pricing
-    html_template = loader.get_template('front-end/insights/pricing.html')
-    return HttpResponse(html_template.render(context, request))
 
 def portfolio(request):
     context={}

@@ -15,7 +15,6 @@ urlpatterns = [
     path('about', views.success_stories, name='insight_success_stories'),
     path('contact', views.contact_us, name='contact-us'),
     # path('portfolio', views.portfolio, name='portfolio'),
-    path('pricing', views.pricing, name='pricing'),
     path('team', views.team, name='team'),
     path('insights/bookmark-ajax', views.favorite, name='bookmark-ajax'),
     path('insights/bookmark-delete-ajax', views.bookmark_delete_ajax, name='bookmark-delete-ajax'),
