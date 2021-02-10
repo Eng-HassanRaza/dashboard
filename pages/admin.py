@@ -12,7 +12,7 @@ class PricingInline(nested_admin.NestedStackedInline):
 
 class Pricing_PageAdmin(nested_admin.NestedModelAdmin):
     inlines = [PricingInline]
-    readonly_fields = ['page_path']
+    # readonly_fields = ['page_path']
 
     def has_delete_permission(self, request, obj=None):
         return False
