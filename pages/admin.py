@@ -17,19 +17,17 @@ class Pricing_PageAdmin(nested_admin.NestedModelAdmin):
     def has_delete_permission(self, request, obj=None):
         return False
 admin.site.register(Pricing_Page, Pricing_PageAdmin)
-admin.site.register(Impacx_Page)
-admin.site.register(Digitialization_Page)
 
-# @admin.register(Impacx_Page)
-# class Impacx_PageAdmin(admin.ModelAdmin):
-#     def has_add_permission(self, request, obj=None):
-#         return False
-#     def has_delete_permission(self, request, obj=None):
-#         return False
-#
-# @admin.register(Digitialization_Page)
-# class Impacx_PageAdmin(admin.ModelAdmin):
-#     def has_add_permission(self, request, obj=None):
-#         return False
-#     def has_delete_permission(self, request, obj=None):
-#         return False
+@admin.register(Impacx_Page)
+class Impacx_PageAdmin(admin.ModelAdmin):
+    def has_add_permission(self, request, obj=None):
+        return False
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+@admin.register(Digitialization_Page)
+class Impacx_PageAdmin(admin.ModelAdmin):
+    def has_add_permission(self, request, obj=None):
+        return False
+    def has_delete_permission(self, request, obj=None):
+        return False
