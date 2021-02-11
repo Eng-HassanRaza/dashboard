@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from .models import Pricing_Page
-from main.models import Pricing
+from .models import Pricing_Page,Impacx_Page,Digitialization_Page
+from main.models import Pricing,Post
 from django.template import loader
 from django.http import HttpResponse,JsonResponse
 # Create your views here.
@@ -23,4 +23,19 @@ def reseller_hosting(request):
     return HttpResponse(html_template.render(context, request))
 
 def impacx_page(request):
-    print("success")
+    context = {}
+    impacx_obj = Impacx_Page.objects.first()
+    latest_posts = Post.objects.all().order_by('-id')[:4]
+    context['impacx_data'] = impacx_obj
+    context['latest_posts'] = latest_posts
+    html_template = loader.get_template('front-end/insights/impax-page.html')
+    return HttpResponse(html_template.render(context, request))
+
+def Digitialization_page(request):
+    context = {}
+    impacx_obj = Digitialization_Page.objects.first()
+    latest_posts = Post.objects.all().order_by('-id')[:4]
+    context['impacx_data'] = impacx_obj
+    context['latest_posts'] = latest_posts
+    html_template = loader.get_template('front-end/insights/impax-page.html')
+    return HttpResponse(html_template.render(context, request))

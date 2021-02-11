@@ -1,0 +1,24 @@
+    <section class="inner-page impacx-article">
+        <div class="container">
+             <div class="row">
+				 {%for art in latest_posts%}
+				 <article class="article related col-md-3 col-sm-6 col-xs-12">
+								<div class="inner">
+									<figure>
+										<a href={% url 'insight_post_page' art.id  %}>
+											<img src={{art.image.url}}>
+										</a>
+									</figure>
+									<div class="padding">
+										<h2><a href={% url 'insight_post_page' art.id  %}>{{art.title|truncatechars:50}}</a></h2>
+										<div class="detail">
+											<div class="category"><a href={% url 'insight_catagory_page' art.catagory  %}>{{art.catagory}}</a></div>
+											<div class="time">{{art.date}}</div>
+										</div>
+									</div>
+								</div>
+							</article>
+				 {%endfor%}
+			 </div>
+        </div>
+    </section>
