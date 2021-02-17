@@ -1,0 +1,215 @@
+ /* ---------------------------------------------------
+	Source URL: https://www.digitaldesignjournal.com/fridays-freebie-clean-simple-pricing-table-psd/
+ ----------------------------------------------------- */
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i&display=swap');
+
+body {
+    font-family: 'Raleway', sans-serif;
+}
+h1, h2{
+margin-top:0px;
+}
+.pricing-table-box {
+    padding: 0px;
+    margin: 0px;
+    margin-top: 10px;
+	width: 100%;
+}
+
+.pricing-table-box td {
+    padding: 0px;
+    border-left: 1px solid transparent;
+}
+
+.pricing-table-box .pricing-table-box-list td {
+    padding: 10px 8px;
+    font-weight: 500;
+    text-align: center;
+    font-size: 14px;
+    background: #F9F9F9;
+}
+
+.pricing-table-box .pricing-table-box-list .glyphicon-ok {
+    color: #68AF27;
+}
+
+.pricing-table-box .pricing-table-box-list .glyphicon-remove {
+    color: #C22439;
+}
+
+.pricing-table-box .pricing-table-box-list td:first-child {
+    font-weight: 400;
+    text-align: left;
+    border-left: 0px;
+    font-size: 14px;
+    color: #060606;
+}
+
+.pricing-table-box .pricing-table-box-list:nth-child(2n) td {
+    background: #F2F2F2;
+}
+
+.pricing-table-box .pricing-table-box-text h2 {
+    font-size: 25px;
+    font-weight: 300;
+    line-height: 30px;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    color: #8a8a8a;
+}
+
+.pricing-table-box .pricing-table-box-text p {
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+    color: #666;
+    margin-top: 10px;
+}
+
+.pricing-table-box .pricing-table-box-item {
+    color: #FFF;
+}
+
+.pricing-table-box .pricing-table-box-item .pricing-table-box-item-head {
+    padding: 10px 5px;
+    text-align: center;
+    background-color: #2ac4ea!important;
+    box-shadow: 0 -2px rgba(0, 0, 0, .1) inset;
+    -moz-box-shadow: 0 -2px rgba(0, 0, 0, .1) inset;
+    -webkit-box-shadow: 0 -2px rgba(0, 0, 0, .1) inset;
+    -o-box-shadow: 0 -2px rgba(0, 0, 0, .1) inset;
+}
+
+.pricing-table-box .pricing-table-box-item .pricing-table-box-item-head p {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 21px;
+    text-transform: uppercase;
+    margin-bottom: 0px;
+}
+
+.pricing-table-box .pricing-table-box-item .pricing-table-box-item-price {
+    padding: 15px 10px;
+    text-align: center;
+    color: #009AD7;
+    background: #F9F9F9;
+}
+
+.pricing-table-box .pricing-table-box-item .pricing-table-box-item-price p {
+    font-size: 31px;
+    font-weight: 600;
+    line-height: 12px;
+    margin-bottom: 0px;
+}
+
+.pricing-table-box .pricing-table-box-item .pricing-table-box-item-price p span {
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.pricing-table-box .pricing-table-box-item .pricing-table-box-item-price > span {
+    font-size: 12px;
+    font-weight: 400;
+    color: #009AD7
+}
+
+.pricing-table-box .pricing-table-box-item .pricing-table-box-item-purchase {
+    padding: 10px 5px;
+    background: #FFF;
+}
+
+.pricing-table-box-item-purchase .btn {
+    text-transform: uppercase;
+    margin-bottom: 0px;
+    background-color: #2ac4ea;
+    box-shadow: 0 -2px rgba(0, 0, 0, .1) inset;
+    -moz-box-shadow: 0 -2px rgba(0, 0, 0, .1) inset;
+    -webkit-box-shadow: 0 -2px rgba(0, 0, 0, .1) inset;
+    -o-box-shadow: 0 -2px rgba(0, 0, 0, .1) inset;
+    border: none;
+    padding: 11px 0;
+}
+
+.btn-success.active.focus,
+.btn-success.active:focus,
+.btn-success.active:hover,
+.btn-success:active.focus,
+.btn-success:active:focus,
+.btn-success:active:hover,
+.open>.dropdown-toggle.btn-success.focus,
+.open>.dropdown-toggle.btn-success:focus,
+.open>.dropdown-toggle.btn-success:hover {
+    color: inherit!important;
+    background-color: inherit!important;
+    border-color: inherit!important;
+}
+
+.pricing-table-box .pricing-table-box-list:nth-child(1n) td.second-row {
+    background: #F2F2F2;
+}
+
+.pricing-table-box .pricing-table-box-list:nth-child(2n) td.second-row {
+    background: #dedede;
+}
+
+.pricing-table-box .pricing-table-box-list:nth-child(1n) td.fourth-row {
+    background: #F2F2F2;
+}
+
+.pricing-table-box .pricing-table-box-list:nth-child(2n) td.fourth-row {
+    background: #dedede;
+}
+
+
+/* Color Version 2*/
+
+.pricing-table-box .pricing-table-box-item .pricing-table-box-item-head.color2 {
+    background-color: #cc1616!important;
+}
+
+.pricing-table-box-item-purchase .btn.color2 {
+    background-color: #cc1616!important;
+}
+
+.pricing-table-box .pricing-table-box-item .pricing-table-box-item-price.color2 {
+    color: #cc1616!important;
+}
+
+/*.theplan{  when mouse hover over pricing table
+  transform: scale(1.05);
+  transition: all .5s;
+  z-index: 100;
+  box-shadow: 0 0 10px gray;
+}
+
+*/
+.theplan {
+    position: relative;
+}
+.theplan:before {
+    box-shadow: rgba(0,0,0,0.8) -15px 0 15px -15px inset;
+    content: " ";
+    height: 100%;
+    top: 0;
+    left: -15px;
+    position: absolute;
+    width: 15px;
+}
+  .theplan:after {
+      box-shadow: rgba(0,0,0,0.8) 15px 0 15px -15px inset;
+      content: " ";
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: -15px;
+      width: 15px;
+  }
+.theplanhead{  when mouse hover over pricing table
+  transform: scale(1.05);
+  transition: all .5s;
+
+  box-shadow: rgba(0,0,0,0.8) 0 0 10px;
+}
+.pricing-table-box-item-head p{ color:white;}

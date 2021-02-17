@@ -31,6 +31,11 @@ def impacx_page(request):
     html_template = loader.get_template('front-end/insights/impax-page.html')
     return HttpResponse(html_template.render(context, request))
 
+def pricing_page(request):
+    context = {}
+    html_template = loader.get_template('front-end/pricing/index.html')
+    return HttpResponse(html_template.render(context, request))
+
 def Digitialization_page(request):
     context = {}
     impacx_obj = Digitialization_Page.objects.first()

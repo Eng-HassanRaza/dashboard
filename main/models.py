@@ -40,14 +40,30 @@ class Success_Stories(models.Model):
     def __str__(self):
         return "%s" % (self.title)
 
+class Pricing_Features(models.Model):
+    name = models.CharField(max_length=255)
+    pricing_page = models.ForeignKey(Pricing_Page, on_delete=models.CASCADE, null=True, blank=True)
+    def __str__(self):
+        return "%s" % (self.name)
+
+
+class Pricing_Features_Value(models.Model):
+    name = models.CharField(max_length=255)
+    pricing_features = models.ForeignKey(Pricing_Features, on_delete=models.CASCADE, null=True, blank=True)
+
+    def __str__(self):
+        return "%s" % (self.name)
+
+
 class Pricing(models.Model):
     title = models.CharField(max_length=255)
     price = models.IntegerField(default=0)
     benefits = TaggableManager()
-    pricing_page = models.ForeignKey(Pricing_Page,on_delete=models.CASCADE,null=True,blank=True)
+    pricing_features = models.ForeignKey(Pricing_Features,on_delete=models.CASCADE,null=True,blank=True)
 
     def __str__(self):
         return "%s" % (self.title)
+
 
 class Team(models.Model):
     name = models.CharField(max_length=255,null=True,blank=True)
