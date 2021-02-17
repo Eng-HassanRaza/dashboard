@@ -1,11 +1,5 @@
 {% extends "front-end/template.html" %}
-{% block stylesheets %}
-    <meta charset="UTF-8">
-    <title>Bootstrap Pricing Table </title>
-    <!--Source URL: https://www.digitaldesignjournal.com/fridays-freebie-clean-simple-pricing-table-psd/-->
-    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
-    <link rel="stylesheet" href="/static/assets/frontend/assets/pricing/style.css">
-{% endblock stylesheets %}
+
 {% block content %}
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
     <link rel="stylesheet" href="/static/assets/frontend/assets/pricing/style.css">
@@ -18,101 +12,42 @@
                         <td width="30%" class="pricing-table-box-text">
 <!--                            <h2>OUR BEST <br/> HOSTING PLANS</h2>-->
                         </td>
-                        <td width="20%">
+                        {%for pkg in pricing_packages%}
+                        <td width="20%" class="{%if forloop.first or forloop.last%}{%else%}theplan theplanhead{%endif%}">
                             <div class="pricing-table-box-item">
                                 <div class="pricing-table-box-item-price color2">
-                                    <h1>Lite</h1>
-                                    <h2>$50<span>/ yr</span> <span>*</span></h2>
-                                    <p><span>save 35%</span></p>
-                                    <p><span>Regular Price $7 /mo</span></p>
+                                    <h1>{{pkg.title}}</h1>
+                                    <h2>{{pkg.price}}<span>/ yr</span> <span>*</span></h2>
+                                    <p><span>save {{pkg.saving}}%</span></p>
+                                    <p><span>Regular Price ${{pkg.monthly_price}} /mo</span></p>
                                 </div>
                                 <div class="pricing-table-box-item-head color2">
-                                    <p>Basic</p>
+                                    <p>{{pkg.title}}</p>
                                 </div>
                             </div>
                         </td>
-                        <td width="20%" class="theplan theplanhead">
-                            <div class="pricing-table-box-item">
-                                <div class="pricing-table-box-item-price color2">
-                                    <h1>Lite</h1>
-                                    <h2>$50<span>/ yr</span> <span>*</span></h2>
-                                    <p><span>save 35%</span></p>
-                                    <p><span>Regular Price $7 /mo</span></p>
-                                </div>
-                                <div class="pricing-table-box-item-head color2">
-                                    <p>Basic</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td width="20%">
-                            <div class="pricing-table-box-item">
-                                <div class="pricing-table-box-item-price color2">
-                                    <h1>Lite</h1>
-                                    <h2>$50<span>/ yr</span> <span>*</span></h2>
-                                    <p><span>save 35%</span></p>
-                                    <p><span>Regular Price $7 /mo</span></p>
-                                </div>
-                                <div class="pricing-table-box-item-head color2">
-                                    <p>Basic</p>
-                                </div>
-                            </div>
-                        </td>
+                        {%endfor%}
                     </tr>
+                    {%for ele in features%}
+                        <tr class="pricing-table-box-list">
+                            <td class="first-row">{{ele}}</td>
+                            {%for feature_val in features_values%}
+                                {%if feature_val.pricing_features.feature_name == ele%}
+                                    {%if feature_val.feature_value == 'true' or feature_val.feature_value == 'True' %}
+                                        <td class="second-row {%if feature_val.recommended %} theplan {%endif%}"><span class="glyphicon glyphicon-ok"></span></td>
+                                    {%elif feature_val.feature_value == 'false' or feature_val.feature_value == 'False' %}
+                                        <td class="second-row {%if feature_val.recommended %} theplan {%endif%}"><span class="glyphicon glyphicon-remove"></span></td>
+                                    {%else%}
+                                        <td class="second-row {%if feature_val.recommended %} theplan {%endif%}">
+                                            {{feature_val.feature_value}}</td>
+                                    {%endif%}
+                                {%endif%}
+                            {%endfor%}
+<!--                            <td class="third-row theplan"><span class="glyphicon glyphicon-ok"></span></td>-->
+<!--                            <td class="fourth-row"><span class="glyphicon glyphicon-ok"></span></td>-->
+                        </tr>
+                    {%endfor%}
 
-                    <tr class="pricing-table-box-list">
-                        <td class="first-row">Free Domain</td>
-                        <td class="second-row"><span class="glyphicon glyphicon-ok"></span></td>
-                        <td class="third-row theplan"><span class="glyphicon glyphicon-ok"></span></td>
-                        <td class="fourth-row"><span class="glyphicon glyphicon-ok"></span></td>
-                    </tr>
-                    <tr class="pricing-table-box-list">
-                        <td class="first-row">Websites</td>
-                        <td class="second-row">1</td>
-                        <td class="third-row theplan">Unlimited</td>
-                        <td class="fourth-row">Unlimited</td>
-                    </tr>
-                    <tr class="pricing-table-box-list">
-                        <td class="first-row">Bandwidth</td>
-                        <td class="second-row">Unlimited</td>
-                        <td class="third-row theplan">Unlimited</td>
-                        <td class="fourth-row">Unlimited</td>
-                    </tr>
-                    <tr class="pricing-table-box-list">
-                        <td class="first-row">Disk Space</td>
-                        <td class="second-row">50GB SSD</td>
-                        <td class="third-row theplan">150GB SSD</td>
-                        <td class="fourth-row">Unlimited</td>
-                    </tr>
-                    <tr class="pricing-table-box-list">
-                        <td class="first-row">MySQL Databases</td>
-                        <td class="second-row">2</td>
-                        <td class="third-row theplan">10</td>
-                        <td class="fourth-row">Unlimited</td>
-                    </tr>
-                    <tr class="pricing-table-box-list">
-                        <td class="first-row">Email Addresses</td>
-                        <td class="second-row">50</td>
-                        <td class="third-row theplan">500</td>
-                        <td class="fourth-row">500</td>
-                    </tr>
-                    <tr class="pricing-table-box-list">
-                        <td class="first-row">Premium DNS</td>
-                        <td class="second-row"><span class="glyphicon glyphicon-remove"></span></td>
-                        <td class="third-row theplan"><span class="glyphicon glyphicon-ok"></span></td>
-                        <td class="fourth-row"><span class="glyphicon glyphicon-ok"></span></td>
-                    </tr>
-                    <tr class="pricing-table-box-list">
-                        <td class="first-row">SSL Certificate</td>
-                        <td class="second-row"><span class="glyphicon glyphicon-remove"></span></td>
-                        <td class="third-row theplan"><span class="glyphicon glyphicon-ok"></span></td>
-                        <td class="fourth-row"><span class="glyphicon glyphicon-ok"></span></td>
-                    </tr>
-                    <tr class="pricing-table-box-list">
-                        <td class="first-row">Support</td>
-                        <td class="second-row">24/7</td>
-                        <td class="third-row theplan">24/7</td>
-                        <td class="fourth-row">24/7</td>
-                    </tr>
                     <tr class="pricing-table-box-list">
                         <td class="first-row"></td>
                         <td class="second-row">

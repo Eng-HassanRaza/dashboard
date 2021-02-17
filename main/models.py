@@ -40,20 +40,30 @@ class Success_Stories(models.Model):
     def __str__(self):
         return "%s" % (self.title)
 
+class Pricing_Packages(models.Model):
+    title = models.CharField(max_length=255)
+    price = models.FloatField(default=0)
+    saving = models.FloatField(default=0)
+    monthly_price = models.FloatField(default=0)
+    pricing_page = models.ForeignKey(Pricing_Page, on_delete=models.CASCADE, null=True, blank=True)
+    # benefits = TaggableManager()
+
+    def __str__(self):
+        return "%s" % (self.title)
+
 class Pricing_Features(models.Model):
-    name = models.CharField(max_length=255)
+    feature_name = models.CharField(max_length=255)
     pricing_page = models.ForeignKey(Pricing_Page, on_delete=models.CASCADE, null=True, blank=True)
     def __str__(self):
-        return "%s" % (self.name)
-
+        return "%s" % (self.feature_name)
 
 class Pricing_Features_Value(models.Model):
-    name = models.CharField(max_length=255)
+    feature_value = models.CharField(max_length=255)
+    recommended = models.BooleanField(default=False)
     pricing_features = models.ForeignKey(Pricing_Features, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
-        return "%s" % (self.name)
-
+        return "%s" % (self.feature_value)
 
 class Pricing(models.Model):
     title = models.CharField(max_length=255)

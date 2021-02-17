@@ -1,13 +1,16 @@
 from django.contrib import admin
 from nested_inline.admin import NestedStackedInline, NestedModelAdmin
 from .models import Pricing_Page,Impacx_Page,Digitialization_Page
-from main.models import Pricing, Pricing_Features,Pricing_Features_Value
+from main.models import Pricing, Pricing_Features,Pricing_Features_Value,Pricing_Packages
 import nested_admin
 # Register your models here.
 
 class Pricing_Features_ValueInline(nested_admin.NestedStackedInline):
     model = Pricing_Features_Value
+    extra = 0
 
+class Pricing_PackagesInline(nested_admin.NestedStackedInline):
+    model = Pricing_Packages
     extra = 0
 
 class Pricing_FeaturesInline(nested_admin.NestedStackedInline):
@@ -17,8 +20,8 @@ class Pricing_FeaturesInline(nested_admin.NestedStackedInline):
     extra = 0
 
 class Pricing_PageAdmin(nested_admin.NestedModelAdmin):
-    inlines = [Pricing_FeaturesInline]
-    # readonly_fields = ['page_path']
+    inlines = [Pricing_PackagesInline,Pricing_FeaturesInline]
+    readonly_fields = ['page_path']
 
     def has_delete_permission(self, request, obj=None):
         return False

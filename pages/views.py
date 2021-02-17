@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Pricing_Page,Impacx_Page,Digitialization_Page
-from main.models import Pricing,Post
+from main.models import Pricing,Post,Pricing_Features_Value,Pricing_Packages
 from django.template import loader
 from django.http import HttpResponse,JsonResponse
 # Create your views here.
@@ -31,8 +31,30 @@ def impacx_page(request):
     html_template = loader.get_template('front-end/insights/impax-page.html')
     return HttpResponse(html_template.render(context, request))
 
-def pricing_page(request):
+def pricing_page_reseller(request):
     context = {}
+    pricing_features_values_obj = Pricing_Features_Value.objects.filter(
+        pricing_features__pricing_page__page_path="reseller_hosting")
+    pricing_packages = Pricing_Packages.objects.filter(pricing_page__page_path="reseller_hosting")
+    features = pricing_features_values_obj.all().values_list('pricing_features__feature_name', flat=True).distinct()
+    reseller_hosting_objs = pricing_features_values_obj.filter(pricing_features__pricing_page__page_path="reseller_hosting")
+    context['pricing_packages'] = pricing_packages
+    context['features_values'] = reseller_hosting_objs
+    context['features'] = features
+
+    html_template = loader.get_template('front-end/pricing/index.html')
+    return HttpResponse(html_template.render(context, request))
+
+def pricing_page_webhosting(request):
+    context = {}
+    pricing_features_values_obj = Pricing_Features_Value.objects.filter(pricing_features__pricing_page__page_path="web_hosting")
+    pricing_packages = Pricing_Packages.objects.filter(pricing_page__page_path="web_hosting")
+    features = pricing_features_values_obj.all().values_list('pricing_features__feature_name', flat=True).distinct()
+    reseller_hosting_objs = pricing_features_values_obj.filter(pricing_features__pricing_page__page_path="web_hosting")
+    context['pricing_packages'] = pricing_packages
+    context['features_values'] = reseller_hosting_objs
+    context['features'] = features
+
     html_template = loader.get_template('front-end/pricing/index.html')
     return HttpResponse(html_template.render(context, request))
 
